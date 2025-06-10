@@ -1,0 +1,14 @@
+@use "./header";
+@import url("/libs/font-poppins/style.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  padding-top: 60px;
+  height: 1000vh;
+}

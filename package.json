@@ -1,0 +1,25 @@
+{
+  "name": "tech-learning",
+  "version": "1",
+  "main": "",
+  "scripts": {
+    "build": "node compile.js all",
+    "watch": "node compile.js watch",
+    "serve": "node dev-server.js",
+    "dev": "npm run watch & npm run serve"
+  },
+  "author": "hx3000",
+  "license": "ISC",
+  "description": "Website For My Students",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "glob": "^11.0.2",
+    "live-server": "^1.2.0",
+    "postcss": "^8.5.3",
+    "pug": "^3.0.3",
+    "sass": "^1.89.0",
+    "terser": "^5.39.2",
+    "typescript": "^5.8.3"
+  }
+}
