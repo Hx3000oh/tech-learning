@@ -1,4 +1,4 @@
-name: Build and Deploy to docs
+name: Build and Deploy docs
 
 on:
   push:
@@ -6,13 +6,14 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -20,17 +21,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build site
+      - name: Build
         run: npm run build
 
-      - name: Deploy dist to docs
+      - name: Prepare docs folder
         run: |
           rm -rf docs
           cp -r dist docs
-      - name: Commit and push changes
+
+      - name: Commit and push docs folder
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add docs
-          git commit -m "Deploy to docs [skip ci]" || echo "No changes to commit"
+          git commit -m "Build and update docs [skip ci]" || echo "No changes to commit"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
