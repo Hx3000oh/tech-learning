@@ -14,14 +14,3 @@ if (fs.existsSync(params.root)) {
 } else {
   throw new Error("Dist Folder Not Found");
 }
-
-/*
-const liveServer = require("live-server");
-const params = {
-  port: 8080,
-  host: "localhost",
-  root: "./dist",
-  watch: ["./src"],
-};
-liveServer.start(params);
-*/

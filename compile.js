@@ -50,12 +50,12 @@ function compileSass() {
       .process(result.css.toString(), { from: outputFile })
       .then((result) => {
         fs.writeFileSync(outputFile, result.css);
-        console.log(`Compiled and prefixed ${outputFile}!`);
       })
       .catch((error) => {
         console.error(`Error compiling Sass: ${error.message}`);
       });
   });
+  console.log("Sass Compiled Successfully");
 }
 
 // Compile Pug
@@ -68,16 +68,12 @@ function compilePug() {
     fs.mkdirSync(outputFileDir, { recursive: true });
     const html = pug.renderFile(file);
     fs.writeFileSync(outputFile, html);
-    console.log(`Compiled ${outputFile}!`);
   });
+  console.log("Pug Compiled Successfully");
 }
 
 // Compile TypeScript
 function compileTs() {
-  const ts = require("typescript");
-  const fs = require("fs");
-  const path = require("path");
-
   // Compile base.ts
   const baseContent = fs.readFileSync("src/ts/base.ts", "utf8");
   const baseResult = ts.transpileModule(baseContent, {
@@ -116,13 +112,10 @@ function compileTs() {
       const outputFile = fileName
         .replace("src/ts/", "dist/")
         .replace(".ts", ".js");
-      console.log(`Processing file: ${outputFile}`);
       if (fs.existsSync(outputFile)) {
-        console.log(`Output file exists: ${outputFile}`);
         const sourceContent = fs.readFileSync(fileName, "utf8");
         let outputContent = fs.readFileSync(outputFile, "utf8");
         if (!sourceContent.includes("//noBase")) {
-          console.log(`Prepending base content to ${outputFile}`);
           fs.writeFileSync(
             outputFile,
             compiledBaseContent + "\n" + outputContent,
@@ -136,6 +129,17 @@ function compileTs() {
     } else {
       console.log(`Output file does not exist: ${outputFile}`);
     }
+  });
+  glob.sync("dist/**/*.js").forEach((file) => {
+    const code = fs.readFileSync(file, "utf8");
+    terser
+      .minify(code)
+      .then((result) => {
+        fs.writeFileSync(file, result.code);
+      })
+      .catch((error) => {
+        console.error(`Error minifying ${file}: ${error.message}`);
+      });
   });
 }
 
