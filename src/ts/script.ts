@@ -1,1 +1,1 @@
-alert("Hi!");
+/// <reference path="base.ts" />

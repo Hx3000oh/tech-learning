@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    "/usr/lib/node_modules/@prettier/plugin-pug/bin/prettier.cjs"
+  ]
+}

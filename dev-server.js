@@ -6,7 +6,6 @@ const params = {
   host: "localhost",
   root: "./dist",
   watch: ["./src"],
-  delay: "3000",
 };
 
 if (fs.existsSync(params.root)) {

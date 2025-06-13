@@ -1,5 +1,10 @@
+@use "./colors" as *;
 @use "./header";
-@import url("/libs/font-poppins/style.css");
+@import url("/tech-learning/libs/font-poppins/style.css");
+
+:root {
+  scroll-behavior: smooth;
+}
 
 * {
   margin: 0;
@@ -8,7 +13,21 @@
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: $text-color;
+}
+
+ul {
+  list-style: none;
+}
+
 body {
-  padding-top: 60px;
+  padding-top: 80px;
   height: 1000vh;
+  background-color: $bg-color;
+  color: $text-color;
+  @media (min-width: 800px) {
+    padding-top: 100px;
+  }
 }

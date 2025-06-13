@@ -8,6 +8,7 @@ const path = require("path");
 const ts = require("typescript");
 const cssnano = require("cssnano");
 const terser = require("terser");
+const chokidar = require("chokidar");
 
 const task = process.argv[2];
 
@@ -154,31 +155,30 @@ function addLibs() {
 }
 
 function watch() {
-  fs.watch("src/sass", { recursive: true }, (_eventType, filename) => {
-    if (filename && filename.endsWith(".scss")) {
+  const watcher = chokidar.watch(
+    ["src/sass", "src/pug", "src/ts", "src/libs"],
+    {
+      persistent: true,
+      recursive: true,
+      ignoreInitial: true,
+    },
+  );
+
+  watcher.on("change", (path) => {
+    if (path.endsWith(".scss")) {
       console.log("Sass file changed, recompiling all Sass files...");
       compileSass();
-    }
-  });
-
-  fs.watch("src/pug", { recursive: true }, (_eventType, filename) => {
-    if (filename && filename.endsWith(".pug")) {
+    } else if (path.endsWith(".pug")) {
       console.log("Pug file changed, recompiling all Pug files...");
       compilePug();
-    }
-  });
-
-  fs.watch("src", { recursive: true }, (_eventType, filename) => {
-    if (filename && filename.endsWith(".ts")) {
+    } else if (path.endsWith(".ts")) {
       console.log(
         "TypeScript file changed, recompiling all TypeScript files...",
       );
       compileTs();
+    } else if (path.startsWith("src/libs")) {
+      console.log("Library file changed, updating libraries...");
+      addLibs();
     }
-  });
-
-  fs.watch("src/libs", { recursive: true }, (_eventType) => {
-    console.log("Library file changed, updating libraries...");
-    addLibs();
   });
 }

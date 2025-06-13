@@ -1,14 +1,32 @@
 header#main-header
   .logo
-    h4 <span>Tech</span> Learning
+    a(href="/tech-learning")
+      h4
+        span Tech
+        |
+        | Learning
   .links
     ul
       li
-        a(href="/") Home
+        a(href="/tech-learning") Home
       li
-        a(href="/about") About Us
+        a(href="/tech-learning/about") About Us
       li
-        a(href="/assignments") Assignments
+        a(href="/tech-learning/assignments") Assignments
   .hamburger
-    .icon
-      i.fa.fa-fw.fa-xl.fa-grip-lines
+    a.icon(href="#")
+      i.fa.fa-fw.fa-xl.fa-bars
+    .menu
+      .logo
+        a(href="/tech-learning")
+          h4
+            span Tech
+            |
+            | Learning
+      ul.links
+        li
+          a(href="/tech-learning") Home
+        li
+          a(href="/tech-learning/about") About Us
+        li
+          a(href="/tech-learning/assignments") Assignments
