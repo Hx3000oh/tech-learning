@@ -2,7 +2,8 @@
 
 %link {
   transition: 0.1s linear;
-  &:hover {
+  &:hover,
+  &.active {
     background-color: $primary-color !important;
     color: $bg-color !important;
   }
@@ -38,16 +39,13 @@ header#main-header {
     }
   }
   > .links {
+    display: flex;
+    align-items: center;
     height: 100%;
-    ul {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      a {
-        padding: 10px;
-        border-radius: 20px;
-        @extend %link;
-      }
+    a {
+      padding: 10px;
+      border-radius: 20px;
+      @extend %link;
     }
     @media (max-width: 799px) {
       display: none;

@@ -1,4 +1,6 @@
 //noBase
+
+// Header Functionality
 const header = document.querySelector("header#main-header") as HTMLDivElement;
 
 const menuIcon = header.querySelector(
@@ -13,4 +15,17 @@ menuIcon.addEventListener("click", () => {
 
 iconMenu.addEventListener("click", () => {
   iconMenu.classList.remove("active");
+});
+
+// Links Functionality
+const links = header.querySelectorAll(".links") as NodeListOf<HTMLUListElement>;
+
+links.forEach((link) => {
+  const anchors = link.querySelectorAll("a");
+  anchors.forEach((anchor) => {
+    if (document.body.classList.contains(anchor.dataset.page || "home")) {
+      anchors.forEach((a) => a.classList.remove("active"));
+      anchor.classList.add("active");
+    }
+  });
 });

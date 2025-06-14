@@ -5,14 +5,13 @@ header#main-header
         span Tech
         |
         | Learning
-  .links
-    ul
-      li
-        a(href="/tech-learning") Home
-      li
-        a(href="/tech-learning/about") About Us
-      li
-        a(href="/tech-learning/assignments") Assignments
+  ul.links
+    li
+      a(href="/tech-learning", data-page="home") Home
+    li
+      a(href="/tech-learning/about", data-page="about") About Us
+    li
+      a(href="/tech-learning/assignments", data-page="assignments") Assignments
   .hamburger
     a.icon(href="#")
       i.fa.fa-fw.fa-xl.fa-bars
@@ -25,8 +24,8 @@ header#main-header
             | Learning
       ul.links
         li
-          a(href="/tech-learning") Home
+          a(href="/tech-learning", data-page="home") Home
         li
-          a(href="/tech-learning/about") About Us
+          a(href="/tech-learning/about", data-page="about") About Us
         li
-          a(href="/tech-learning/assignments") Assignments
+          a(href="/tech-learning/assignments", data-page="assignments") Assignments
