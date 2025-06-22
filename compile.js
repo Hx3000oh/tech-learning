@@ -9,6 +9,7 @@ const ts = require("typescript");
 const cssnano = require("cssnano");
 const terser = require("terser");
 const chokidar = require("chokidar");
+const yaml = require("js-yaml");
 
 const task = process.argv[2];
 
@@ -61,16 +62,42 @@ function compileSass() {
 
 // Compile Pug
 function compilePug() {
+  function extractFrontMatterAndStrip(content, filePath) {
+    const match = content.match(/^\/\/-\s*---\n([\s\S]*?)\n\/\/-\s*---/);
+    if (match) {
+      try {
+        const yamlData = yaml.load(match[1]);
+        const stripped = content.replace(match[0], "").trimStart();
+        return { locals: yamlData, pugWithoutFrontMatter: stripped };
+      } catch (err) {
+        console.error(`YAML error in file: ${filePath}\n${err}`);
+      }
+    }
+    return { locals: {}, pugWithoutFrontMatter: content };
+  }
+
   glob.sync("src/pug/pages/**/[^_]*.pug").forEach((file) => {
     const outputFile = file
       .replace("src/pug/pages", "dist")
       .replace(".pug", ".html");
     const outputFileDir = path.dirname(outputFile);
     fs.mkdirSync(outputFileDir, { recursive: true });
-    const html = pug.renderFile(file);
+
+    const content = fs.readFileSync(file, "utf-8");
+    const { locals, pugWithoutFrontMatter } = extractFrontMatterAndStrip(
+      content,
+      file,
+    );
+
+    const html = pug.render(pugWithoutFrontMatter, {
+      filename: file, // required for resolving extends/includes
+      ...locals,
+    });
+
     fs.writeFileSync(outputFile, html);
   });
-  console.log("Pug Compiled Successfully");
+
+  console.log("✅ Pug Compiled with Front Matter (and fixed extends)");
 }
 
 // Compile TypeScript

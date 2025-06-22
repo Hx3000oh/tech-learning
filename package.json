@@ -16,6 +16,7 @@
     "chokidar": "^4.0.3",
     "cssnano": "^7.0.7",
     "glob": "^11.0.2",
+    "js-yaml": "^4.1.0",
     "live-server": "^1.2.0",
     "postcss": "^8.5.3",
     "pug": "^3.0.3",
