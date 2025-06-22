@@ -1,5 +1,11 @@
-- const pageTitle = "Tech Learning | a new place to learn!";
+- const pageTitle = "Tech Learning | A New Place To Learn!";
 - const page = "home";
-include ../_layouts/_base.pug
+extends ../_layouts/_base.pug
 block body
-  h1 Welcome To Home!
+  section.landing
+    - for (let i = 0; i < 3; i++)
+      .ball
+    .container
+      h1.section-heading Tired Of Hard Learning ?
+      p.section-text Welcome To Tech Learning Where You Find All Homeworks For Your Awesome Course
+      button.main-btn Get Me In!

@@ -6,8 +6,9 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     include ../_includes/_css.pug
     title #{ pageTitle }
-  body(class={ page })
+  body(class=page)
     include ../_layouts/_header.pug
     block body
+      h1 Welcome
 
     include ../_includes/_js.pug

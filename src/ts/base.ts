@@ -21,7 +21,8 @@ iconMenu.addEventListener("click", () => {
 const links = header.querySelectorAll(".links") as NodeListOf<HTMLUListElement>;
 
 links.forEach((link) => {
-  const anchors = link.querySelectorAll("a");
+  const anchors = link.querySelectorAll("a") as NodeListOf<HTMLAnchorElement>;
+
   anchors.forEach((anchor) => {
     if (document.body.classList.contains(anchor.dataset.page || "home")) {
       anchors.forEach((a) => a.classList.remove("active"));

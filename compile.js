@@ -155,6 +155,11 @@ function addLibs() {
 }
 
 function watch() {
+  compilePug();
+  compileSass();
+  compileTs();
+  addLibs();
+
   const watcher = chokidar.watch(
     ["src/sass", "src/pug", "src/ts", "src/libs"],
     {
@@ -163,6 +168,8 @@ function watch() {
       ignoreInitial: true,
     },
   );
+
+  watcher.on("ready", () => console.log("Watcher Started!"));
 
   watcher.on("change", (path) => {
     if (path.endsWith(".scss")) {

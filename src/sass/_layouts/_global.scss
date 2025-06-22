@@ -23,11 +23,21 @@ ul {
 }
 
 body {
-  padding-top: 80px;
   height: 1000vh;
   background-color: $bg-color;
   color: $text-color;
   @media (min-width: 800px) {
     padding-top: 100px;
   }
+}
+
+section {
+  min-height: 100vh;
+  height: fit-content;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 760px;
 }
