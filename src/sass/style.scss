@@ -1,5 +1,6 @@
 @use "./_layouts/global";
 @use "./_layouts/colors" as *;
+@use "./_layouts/ui";
 
 body {
   padding-top: 0;
@@ -7,28 +8,74 @@ body {
 section.landing {
   color: #fcfcfc;
   background-color: #121212;
-  box-shadow: 0 0 10px 10px #121212;
+  box-shadow: 0 0 10px #121212;
   position: relative;
+  overflow: hidden;
   .container {
-    background-color: rgba(#121212, 0.6);
-    z-index: 99;
-    height: 100%;
-    backdrop-filter: blur(30px);
+    background-color: rgba(#121212, 0.5);
+    z-index: 150;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    * {
+      z-index: 99;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 0 0 10px currentColor;
+      @media (max-width: 799px) {
+        font-size: 2rem;
+        margin: 0 10px;
+      }
+    }
+    p {
+      font-size: 1.3rem;
+      margin: 20px 0;
+      text-align: center;
+      text-shadow: 0 0 20px currentColor;
+      color: #ccc;
+      @media (max-width: 799px) {
+        font-size: 1rem;
+      }
+    }
+  }
+  .overlay {
+    background-color: rgba(#121212, 0.5);
+    width: 100%;
+    backdrop-filter: blur(35px);
+    position: absolute;
   }
   .ball {
-    width: 100px;
-    height: 100px;
+    $ball: 200px;
+    width: $ball;
+    height: $ball;
     border-radius: 50%;
     position: absolute;
+    z-index: 0;
     &:nth-child(1) {
       background-color: #0075ff;
-      top: 10%;
+      top: 40%;
+      animation: expandball 4s ease-in-out both infinite;
     }
     &:nth-child(2) {
       background-color: #4e9efe;
+      top: 70%;
+      left: 30%;
+      animation: expandball 5s ease-in-out both infinite;
     }
     &:nth-child(3) {
       background-color: #0065dc;
+      top: 20%;
+      left: 60%;
+      animation: expandball 4s 1s ease-in-out both infinite;
     }
+  }
+}
+@keyframes expandball {
+  50% {
+    transform: scale(2, 2);
   }
 }

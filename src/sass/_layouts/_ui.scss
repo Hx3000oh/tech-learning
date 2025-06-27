@@ -1,0 +1,81 @@
+@use "../_layouts/global";
+@use "../_layouts/colors" as *;
+
+.main-button {
+  padding: 10px 15px;
+  background-color: $primary-color;
+  border: 0;
+  border-radius: 100000px;
+  font-size: 18px;
+  color: $bg-color;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 12px 10px rgba($color: #000000, $alpha: 0.1);
+  &:hover {
+    background-color: #005acd;
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.main-heading {
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+  h1 {
+    position: relative;
+    padding: 7px;
+    border: 5px solid $text-color;
+    color: $text-color;
+    width: fit-content;
+    margin: auto auto 10px auto;
+    transition: 0.35s ease-in-out;
+    &:before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.35s ease-in-out;
+      left: -50%;
+      z-index: -1;
+    }
+    &:after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.35s ease-in-out;
+      right: -50%;
+      z-index: -1;
+    }
+    &:hover {
+      border-color: $primary-color;
+      color: $bg-color;
+      &:before {
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+      &:after {
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+      }
+    }
+  }
+  p {
+    font-size: 1.2rem;
+    color: $paragraph-color;
+    @media (max-width: 800px) {
+      font-size: 1rem !important;
+    }
+  }
+}
