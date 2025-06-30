@@ -74,6 +74,55 @@ section.landing {
     }
   }
 }
+section.start {
+  .content-area {
+    margin-top: 145px;
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      overflow: visible;
+      .card {
+        padding: 30px 20px;
+        width: min(100%, 300px);
+        text-align: center;
+        margin: 10px;
+        box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
+        border-radius: 25px;
+        transition: all 0.3s ease-out;
+        h1 {
+          color: $alt-color;
+        }
+        p {
+          color: $paragraph-color;
+        }
+        > .fa {
+          display: block;
+          font-size: 500%;
+          margin: 50px 0;
+          color: $alt-color;
+        }
+        button {
+          display: inline-flex;
+          gap: 5px;
+          align-items: center;
+        }
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 10px 5px rgba($color: #000000, $alpha: 0.1);
+        }
+      }
+      @media (max-width: 800px) {
+        justify-content: center;
+        .card {
+          max-width: initial;
+          width: 90%;
+        }
+      }
+    }
+  }
+}
 @keyframes expandball {
   50% {
     transform: scale(2, 2);

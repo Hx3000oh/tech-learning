@@ -57,7 +57,7 @@ function compileSass() {
         console.error(`Error compiling Sass: ${error.message}`);
       });
   });
-  console.log("Sass Compiled Successfully");
+  console.log("Sass Compiled Successfully!");
 }
 
 // Compile Pug
@@ -97,7 +97,7 @@ function compilePug() {
     fs.writeFileSync(outputFile, html);
   });
 
-  console.log("✅ Pug Compiled with Front Matter (and fixed extends)");
+  console.log("Pug Compiled Successfully!");
 }
 
 // Compile TypeScript
@@ -178,7 +178,7 @@ function addLibs() {
     fs.mkdirSync(outDir);
   }
   fs.cpSync(srcDir, `${outDir}/libs`, { recursive: true });
-  console.log("Added Libraries");
+  console.log("Added Libraries!");
 }
 
 function watch() {

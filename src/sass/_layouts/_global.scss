@@ -26,9 +26,9 @@ body {
   height: 1000vh;
   background-color: $bg-color;
   color: $text-color;
-  @media (min-width: 800px) {
-    padding-top: 100px;
-  }
+  // @media (min-width: 800px) {
+  padding-top: 100px;
+  // }
 }
 
 section {
