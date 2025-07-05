@@ -4,4 +4,50 @@ page: get-course
 //- ---
 extends ../../_layouts/_base.pug
 block body
-  h1 Get Course
+  section.contact
+    .container
+      .main-heading
+        h1 Get Course
+        p Connect To Us To Get Course
+
+      .content-area
+        h2 Click a Box
+        .blocks-area
+          #whatsapp-connect.block.whatsapp
+            i.fa.fa-brands.fa-whatsapp
+            h3 Whatsapp
+          #email-connect.block.email
+            i.fa.fa-solid.fa-envelope
+            h3 Email
+        .overlay
+        .menus-area
+          .whatsapp.active
+            .menubar
+              i.fa.fa-brands.fa-whatsapp
+              i.fa.fa-solid.fa-close
+            .content
+              .select-box
+                .option
+                  p
+                    | Talk To Center
+                    span recommended
+                  button Go
+                .option
+                  p
+                    | Talk To Mintor
+                  button Go
+          .email
+            .menubar
+              i.fa.fa-solid.fa-envelope
+              i.fa.fa-solid.fa-close
+            .content
+              .select-box
+                .option
+                  p
+                    | Send To Center
+                    span recommended
+                  button Go
+                .option
+                  p
+                    | Send To Mintor
+                  button Go
