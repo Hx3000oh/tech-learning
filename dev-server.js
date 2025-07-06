@@ -4,7 +4,7 @@ const fs = require("fs");
 const params = {
   port: 8080,
   host: "localhost",
-  root: "./dist",
+  root: "./",
   watch: ["./src"],
 };
 
