@@ -1,2 +1,7 @@
 @use "../_layouts/global";
 @use "../_layouts/colors" as *;
+
+body {
+  font-family: "Bitcount", sans-serif !important;
+  padding-top: 100px;
+}

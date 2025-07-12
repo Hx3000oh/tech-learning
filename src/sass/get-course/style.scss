@@ -50,23 +50,87 @@ section.contact {
     .overlay {
       opacity: 0;
       visibility: hidden;
-      position: absolute;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($text-color, 0.6);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      transition: 0.2s ease;
+      &.active {
+        opacity: 1;
+        visibility: visible;
+      }
     }
     .menus-area {
-      display: none;
-      animation: appear-menu 0.2s linear both;
-    }
-    @keyframes appear-menu {
-      0% {
-        display: none;
+      > div {
+        visibility: hidden;
         opacity: 0;
-      }
-      10% {
-        opacity: 1;
-        display: block;
-      }
-      100% {
-        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.2s ease;
+        background: $bg-color;
+        color: $text-color;
+        padding: 0 20px 20px;
+        z-index: 101;
+        border-radius: 25px;
+        width: 90%;
+        max-width: 500px;
+        overflow: hidden;
+        .menubar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+          padding: 15px 5px 10px;
+          border-bottom: 1px solid $text-color;
+          flex-wrap: wrap;
+          i {
+            cursor: pointer;
+            font-size: 25px;
+            &.close {
+              padding: 3px;
+              border-radius: 5px;
+              &:hover {
+                background: hsl(from $hover-color h s calc(l - 10));
+              }
+            }
+          }
+        }
+        .content .option {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 10px;
+          margin: 20px 10px;
+          box-shadow: 0 0 10px rgba(#000, 0.3);
+          border-radius: 10px;
+          transition: 0.07s ease;
+          user-select: none;
+          p span {
+            margin: 0 3px;
+            padding: 3px 5px;
+            border-radius: 25px;
+            font-size: 12px;
+            background: hsl(from $primary-color h s calc(l - 10) / 0.5);
+            border: 1px solid hsl(from $primary-color h s calc(l + 20));
+            color: $bg-color;
+          }
+          button {
+            padding: 5px 20px;
+          }
+          &:hover {
+            background-color: hsl(from $hover-color h s calc(l - 10));
+          }
+        }
+        &.active {
+          visibility: visible;
+          opacity: 1;
+        }
       }
     }
   }
