@@ -13,15 +13,15 @@ block body
       .content-area
         h2 Click a Box
         .blocks-area
-          #whatsapp-connect.block.whatsapp
+          #whatsapp.block.whatsapp
             i.fa.fa-brands.fa-whatsapp
             h3 Whatsapp
-          #email-connect.block.email
+          #email.block.email
             i.fa.fa-solid.fa-envelope
             h3 Email
-        .overlay.active
+        .overlay
         .menus-area
-          .whatsapp.active
+          .whatsapp#whatsapp-menu
             .menubar
               i.fa.fa-brands.fa-whatsapp.fa-fw.icon
               i.fa.fa-solid.fa-close.fa-fw.close
@@ -36,18 +36,14 @@ block body
                   p
                     | Talk To Mentor
                   a(href="https://wa.me/+201145022698").main-button Go
-          .email
+          .email#email-menu
             .menubar
-              i.fa.fa-solid.fa-envelope.fa-fw
-              i.fa.fa-solid.fa-close.fa-fw
+              i.fa.fa-solid.fa-envelope.fa-fw.icon
+              i.fa.fa-solid.fa-close.fa-fw.close
             .content
               .select-box
                 .option
                   p
-                    | Send To Center
+                    | Send To Mentor
                     span recommended
-                  button.main-button Go
-                .option
-                  p
-                    | Send To Mintor
                   a(href="").main-button Go
