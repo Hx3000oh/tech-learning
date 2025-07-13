@@ -17,11 +17,11 @@ block body
             i.fa.fa-brands.fa-whatsapp
             h3 Whatsapp
           #email.block.email
-            i.fa.fa-solid.fa-envelope
-            h3 Email
+            i.fa.fa-solid.fa-phone
+            h3 Phone
         .overlay
         .menus-area
-          .whatsapp#whatsapp-menu
+          #whatsapp-menu.whatsapp
             .menubar
               i.fa.fa-brands.fa-whatsapp.fa-fw.icon
               i.fa.fa-solid.fa-close.fa-fw.close
@@ -31,19 +31,36 @@ block body
                   p
                     | Talk To Center
                     span recommended
-                  a(href="https://wa.me/+201145022698").main-button Go
+                  a.main-button(href="https://wa.me/+201145022698") Go
                 .option
                   p
                     | Talk To Mentor
-                  a(href="https://wa.me/+201145022698").main-button Go
-          .email#email-menu
+                  a.main-button(href="https://wa.me/+201145022698") Go
+          #email-menu.email
             .menubar
-              i.fa.fa-solid.fa-envelope.fa-fw.icon
+              i.fa.fa-solid.fa-phone.fa-fw.icon
               i.fa.fa-solid.fa-close.fa-fw.close
             .content
               .select-box
                 .option
                   p
-                    | Send To Mentor
+                    | Talk To Center
                     span recommended
-                  a(href="").main-button Go
+                  a.main-button(href="", onclick="copyNumber('center-copy')") Copy Number
+                  input#center-copy(
+                    type="text",
+                    hidden,
+                    value="01145022698",
+                    content-editible="false"
+                  )
+                .option
+                  p
+                    | Talk To Mentor
+                    span recommended
+                  a.main-button(href="", onclick="copyNumber('mentor-copy')") Copy Number
+                  input#mentor-copy(
+                    type="text",
+                    hidden,
+                    value="01145022698",
+                    content-editible="false"
+                  )
