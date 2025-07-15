@@ -1,4 +1,4 @@
-@use "./colors" as *;
+@use "./colors";
 @use "./header";
 @import url("/tech-learning/libs/font-poppins/style.css");
 
@@ -15,7 +15,7 @@
 
 a {
   text-decoration: none;
-  color: $text-color;
+  color: var(--text-color);
 }
 
 ul {
@@ -24,8 +24,8 @@ ul {
 
 body {
   height: 1000vh;
-  background-color: $bg-color;
-  color: $text-color;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   // @media (min-width: 800px) {
   // padding-top: 50px;
   // }

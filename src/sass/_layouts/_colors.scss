@@ -1,7 +1,8 @@
-$primary-color: #0075ff;
-$alt-color: #0054ba;
-$bg-color: #fcfcfc;
-$text-color: #111;
-$paragraph-color: #333;
-$disabled-button: #eee;
-$hover-color: #eee;
+:root {
+  --primary-color: #0075ff;
+  --alt-color: hsl(from var($primary-color) h s calc(l - 15));
+  --bg-color: #f8f8f4;
+  --text-color: #111;
+  --paragraph-color: hsl(from var(--text-color) h s calc(l + 15));
+  --hover-color: hsl(from var(--bg-color) h calc(s - 20) l);
+}

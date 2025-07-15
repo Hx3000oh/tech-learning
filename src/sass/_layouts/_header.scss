@@ -1,11 +1,9 @@
-@use "./colors" as *;
-
 %link {
   transition: 0.1s linear;
   &:hover,
   &.active {
-    background-color: $primary-color !important;
-    color: $bg-color !important;
+    background-color: var(--primary-color) !important;
+    color: var(--bg-color) !important;
   }
 }
 
@@ -15,10 +13,10 @@ header#main-header {
   left: 50%;
   width: 95%;
   height: 60px;
-  background: rgba($bg-color, 0.7);
+  background: rgba(var(--bg-color), 0.7);
   border-radius: 100px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 4px 8px 5px rgba($text-color, 0.2);
+  box-shadow: 0 4px 8px 5px rgba(var(--text-color), 0.2);
   transform: translateX(-50%);
   z-index: 9999;
   .container {
@@ -33,7 +31,7 @@ header#main-header {
         weight: normal;
       }
       span {
-        color: $primary-color;
+        color: var(--primary-color);
       }
       @media (max-width: 799px) {
         font-size: 20px;
@@ -68,17 +66,17 @@ header#main-header {
         top: 0;
         left: 0;
         z-index: 99999;
-        background: $bg-color;
+        background: var(--bg-color);
         width: 100%;
         border-radius: 20px;
         padding: 15px;
         display: flex;
         align-items: center;
         flex-direction: column;
-        background: $bg-color;
+        background: var(--bg-color);
         text-align: center;
         transform: translateY(-150%);
-        box-shadow: 0 4px 8px 5px rgba($text-color, 0.2);
+        box-shadow: 0 4px 8px 5px rgba(var(--tetx-color), 0.2);
         &.active {
           transform: translateY(0);
         }

@@ -1,5 +1,4 @@
 @use "../_layouts/global";
-@use "../_layouts/colors" as *;
 @use "../_layouts/ui";
 
 // body {
@@ -14,7 +13,7 @@ section.contact {
     padding: 30px 0;
     text-align: center;
     h2 {
-      color: $alt-color;
+      color: var(--alt-color);
       margin-bottom: 20px;
     }
     .blocks-area {
@@ -37,13 +36,13 @@ section.contact {
         }
         &.whatsapp {
           background: #25d366;
-          color: $bg-color;
+          color: var(--bg-color);
           &:hover {
             background: #20b357;
           }
         }
         &.email:hover {
-          background: $hover-color;
+          background: var(--hover-color);
         }
       }
     }
@@ -55,7 +54,7 @@ section.contact {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba($text-color, 0.6);
+      background: rgba(var(--text-color), 0.6);
       backdrop-filter: blur(10px);
       z-index: 100;
       transition: 0.2s ease;
@@ -73,8 +72,8 @@ section.contact {
         left: 50%;
         transform: translate(-50%, -50%);
         transition: 0.2s ease;
-        background: $bg-color;
-        color: $text-color;
+        background: var(--bg-color);
+        color: var(--text-color);
         padding: 0 20px 20px;
         z-index: 999999;
         border-radius: 25px;
@@ -87,7 +86,7 @@ section.contact {
           align-items: center;
           margin-bottom: 10px;
           padding: 15px 5px 10px;
-          border-bottom: 1px solid $text-color;
+          border-bottom: 1px solid var(--text-color);
           flex-wrap: wrap;
           i {
             cursor: pointer;
@@ -96,7 +95,7 @@ section.contact {
               padding: 3px;
               border-radius: 5px;
               &:hover {
-                background: hsl(from $hover-color h s calc(l - 10));
+                background: hsl(from var(--hover-color) h s calc(l - 10));
               }
             }
           }
@@ -116,15 +115,15 @@ section.contact {
             padding: 3px 5px;
             border-radius: 25px;
             font-size: 12px;
-            background: hsl(from $primary-color h s calc(l - 10) / 0.5);
-            border: 1px solid hsl(from $primary-color h s calc(l + 20));
-            color: $bg-color;
+            background: hsl(from var(--primary-color) h s calc(l - 10) / 0.5);
+            border: 1px solid hsl(from var(--primary-color) h s calc(l + 20));
+            color: var(--bg-color);
           }
           button {
             padding: 5px 20px;
           }
           &:hover {
-            background-color: hsl(from $hover-color h s calc(l - 10));
+            background-color: hsl(from var(--hover-color) h s calc(l - 10));
           }
         }
         &.active {

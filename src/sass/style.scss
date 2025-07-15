@@ -1,5 +1,4 @@
 @use "./_layouts/global";
-@use "./_layouts/colors" as *;
 @use "./_layouts/ui";
 
 body {
@@ -92,16 +91,16 @@ section.start {
         border-radius: 25px;
         transition: all 0.3s ease-out;
         h1 {
-          color: $alt-color;
+          color: var(--alt-color);
         }
         p {
-          color: $paragraph-color;
+          color: var(--paragraph-color);
         }
         > .fa {
           display: block;
           font-size: 500%;
           margin: 50px 0;
-          color: $alt-color;
+          color: var(--alt-color);
         }
         button {
           display: inline-flex;
