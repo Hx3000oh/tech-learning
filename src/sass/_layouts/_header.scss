@@ -13,10 +13,10 @@ header#main-header {
   left: 50%;
   width: 95%;
   height: 60px;
-  background: rgba(var(--bg-color), 0.7);
+  background: rgba(var(--bg-rgb), 0.5);
   border-radius: 100px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 4px 8px 5px rgba(var(--text-color), 0.2);
+  box-shadow: 0 4px 8px 5px rgba(var(--text-rgb), 0.2);
   transform: translateX(-50%);
   z-index: 9999;
   .container {

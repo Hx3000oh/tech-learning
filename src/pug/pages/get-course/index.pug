@@ -31,11 +31,11 @@ block body
                   p
                     | Talk To Center
                     span recommended
-                  a.main-button(href="https://wa.me/+201145022698") Go
+                  a.main-button(href="https://wa.me/+201062903190" target="_blank") Go
                 .option
                   p
                     | Talk To Mentor
-                  a.main-button(href="https://wa.me/+201145022698") Go
+                  a.main-button(href="https://wa.me/+201145022698" target="_blank") Go
           #email-menu.email
             .menubar
               i.fa.fa-solid.fa-phone.fa-fw.icon
@@ -44,23 +44,10 @@ block body
               .select-box
                 .option
                   p
-                    | Talk To Center
-                    span recommended
-                  a.main-button(href="", onclick="copyNumber('center-copy')") Copy Number
-                  input#center-copy(
-                    type="text",
-                    hidden,
-                    value="01145022698",
-                    content-editible="false"
-                  )
-                .option
-                  p
                     | Talk To Mentor
                     span recommended
-                  a.main-button(href="", onclick="copyNumber('mentor-copy')") Copy Number
-                  input#mentor-copy(
-                    type="text",
-                    hidden,
-                    value="01145022698",
-                    content-editible="false"
-                  )
+                  a.main-button(href="", onclick="copyToClipboard('01145022698'); return false") Copy Number
+                .option
+                  p
+                    | Talk To Center
+                  a.main-button(href="", onclick="copyToClipboard('01122897317'); return false") Copy Number

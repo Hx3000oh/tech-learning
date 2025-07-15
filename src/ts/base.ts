@@ -30,3 +30,13 @@ links.forEach((link) => {
     }
   });
 });
+
+function alertElement(msg: string) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert-element");
+  alert.innerText = msg;
+  blocksArea.appendChild(alert);
+  setTimeout(() => {
+    alert.remove();
+  }, 2000);
+}

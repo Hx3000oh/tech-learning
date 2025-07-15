@@ -12,7 +12,7 @@ blocks.forEach((block) => {
   block.addEventListener("click", () => {
     const overlay = document.querySelector(".overlay") as HTMLDivElement;
 
-    // Opem Menu
+    // Open Menu
     overlay.classList.toggle("active");
     menusArea.querySelector(`#${block.id}-menu`)?.classList.toggle("active");
 
@@ -51,9 +51,11 @@ blocks.forEach((block) => {
   });
 });
 
-function copuNumber(input: string) {
-  const item = document.getElementById(input) as HTMLInputElement;
-  if (item) {
-    item.select();
+async function copyToClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    alertElement("Number Copied to Clipboard!")
+  } catch (err) {
+    alertElement("Failed to Copy Number to Clipboard!")
   }
 }
