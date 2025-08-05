@@ -12,5 +12,5 @@
   --text-color: #111;
   --text-rgb: #{hex-to-rgb(#111)};
   --paragraph-color: hsl(from var(--text-color) h s calc(l + 15));
-  --hover-color: hsl(from var(--bg-color) h calc(s - 20) l);
+  --hover-color: hsl(from var(--bg-color) h s calc(l - 15));
 }

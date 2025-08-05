@@ -1,6 +1,7 @@
 @use "./colors";
 @use "./header";
 @import url("/tech-learning/libs/font-poppins/style.css");
+@import url("/tech-learning/libs/font-bitcount/style.css");
 
 :root {
   scroll-behavior: smooth;
@@ -61,4 +62,12 @@ section {
   box-shadow: 0 0 10px 10px rgba(#000, 0.1);
   z-index: 999999;
   transition: 0.2s ease;
+}
+
+.font-bitcount {
+  font-family: "Bitcount", sans-serif;
+
+  &.font-deep *:not(.fa) {
+    font-family: "Bitcount", sans-serif;
+  }
 }

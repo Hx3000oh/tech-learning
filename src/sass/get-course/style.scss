@@ -140,3 +140,55 @@ section.contact {
     }
   }
 }
+
+section.listings {
+  .maps {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    .map {
+      background: var(--hover-color);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 25px;
+      gap: 40px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      padding: 30px;
+      &:hover {
+        background: var(--primary-color);
+        color: var(--bg-color);
+        .lang {
+          color: var(--text-color);
+        }
+      }
+      .langs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .lang {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 5px;
+          margin-bottom: 10px;
+          background: var(--bg-color);
+          padding: 5px;
+          border-radius: 10px;
+          h2 {
+            margin: 0;
+          }
+          i {
+            font-size: 40px;
+            //margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
